@@ -6,7 +6,7 @@
         <form method="POST" action="{{ action('UserController@store') }}">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="name">Név:</label>
                 <input type="text" class="form-control" id="name" name="name" minlength="6">
             </div>
 
@@ -16,13 +16,22 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Password:</label>
+                <label for="password">Jelszó:</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-success">Register</button>
+                <label for="user_role">Felhasználó szerepe:</label>
+                <select class="form-control" name="user_role" id="role">
+                    <option value="admin">Adminisztrátor</option>
+                    <option value="simple">Felhasználó</option>
+                </select>
             </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Hozzáad</button>
+            </div>
+
 
         </form>
         <div class="form-group">

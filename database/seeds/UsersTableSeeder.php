@@ -15,11 +15,11 @@ class UsersTableSeeder extends Seeder
             'name'=> 'admin',
             'email'=>'admin@admin.com',
             'password'=>Hash::make('secret'),
-            'free_days'=> 23
+            'user_role' => 'admin'
         ]);
 
         factory(\App\User::class, 20)->create()->each(function ($user){
-            $user->post()->save(factory(App/Post::class)->make());
+            $user->post()->save()->make();
         });
     }
 }

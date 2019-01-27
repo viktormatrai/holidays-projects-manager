@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <p class="h2 mt-5">My reserved vacations</p>
+    <p class="h2 mt-5">My reserved holidays</p>
     <div class="card bg-light">
         <div class="card-body p-0">
             <table class="table">

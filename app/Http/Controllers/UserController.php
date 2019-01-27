@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -37,7 +38,8 @@ class UserController extends Controller
         $validationRules = array(
             'name'=>'required',
             'email'=>'required',
-            'password'=>'required'
+            'password'=>'required',
+            'user_role' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $validationRules);
@@ -52,6 +54,7 @@ class UserController extends Controller
         $user -> name = Input::get('name');
         $user -> email = Input::get('email');
         $user -> password = Hash::make(Input::get('password'));
+        $user -> user_role = Input::get('user_role');
         $user -> save();
 
         return redirect('/freedays');

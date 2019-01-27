@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\FreeDay;
 use App\User;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class FreedayController extends Controller
 {
@@ -22,15 +24,27 @@ class FreedayController extends Controller
     }
 
     public function store(Request $request){
+        //$validationRules = array(
+        //    'first_day' => 'required',
+        //    'last_day' => 'required',
+        //);
 
-        FreeDay::create([
-           'first_day'=>$request->get('first_day'),
-            'last_day'=>$request->get('last_day'),
-            'user_id' =>Auth::id()
-        ]);
+        /*$validator = Validator::make(Input::all(), $validationRules);
 
-        return redirect('/freedays');
+        if ($validator->fails()) {
+            return view('example.reserve')
+                ->withErrors($validator);
+        } else {*/
+
+            FreeDay::create([
+                'first_day' => $request->get('first_day'),
+                'last_day' => $request->get('last_day'),
+                'user_id' => Auth::id()
+            ]);
+
+            return redirect('/freedays');
     }
+
 
     public function edit($id){
 
@@ -39,16 +53,30 @@ class FreedayController extends Controller
         return view('example.update_reservation')->with('freeday', $freeday);
     }
 
+
     public function update(Request $request){
 
         $id = $request->get('id');
 
-        FreeDay::where('id', $id)->update([
-                                            'first_day'=> $request->get('first_day'),
-                                            'last_day' => $request->get('last_day')
-                                            ]);
+        $validationRules = array(
+            'first_day' => 'required',
+            'last_day' => 'required',
+            );
 
-        return redirect('reserve/index');
+        /*$validator = Validator::make(Input::all(), $validationRules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/reservation' . $id . '/edit')
+                ->withErrors($validator);
+        } else {*/
+
+            FreeDay::where('id', $id)
+                ->update([
+                    'first_day' => $request->get('first_day'),
+                    'last_day' => $request->get('last_day')
+                ]);
+
+            return redirect('reserve/index');
     }
 
 
@@ -61,4 +89,5 @@ class FreedayController extends Controller
 
         return redirect('/reserve/index');
     }
+
 }

@@ -20,6 +20,9 @@ class CreateFreedaysTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                     ->references('id')->on('users');
+            $table->integer('free_days')->nullable();
+            $table->integer('used_free_days')->nullable();
+            $table->integer('remaining_free_days')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -13,10 +13,14 @@ class FreeDay extends Model
     protected $table = 'freedays';
 
     protected $fillable=[
-      'first_day', 'last_day', 'user_id'
+      'first_day', 'last_day', 'user_idW'
     ];
 
     public $holidays = ['*-01-01', '*-03-15', '*-12-25', '*-12-26', '*-10-23', '*-11-01'];
+
+    /*public function user(){
+        return $this->belongsTo('App/User');
+    }
 
     public function firtsDay(){
         return $this->belongsTo('User');
@@ -28,7 +32,7 @@ class FreeDay extends Model
 
     public function getFirstDay($first_day){
         return $first_day = Carbon::createFromFormat('Y-m-d', $first_day);
-    }
+    }*/
 
     public function getLastDay($last_day){
         return Carbon::createFromFormat('Y-m-d', $last_day);

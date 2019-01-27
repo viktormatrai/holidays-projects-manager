@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use App\FreeDay;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'free_days'
+        'name', 'email', 'password', 'user_role'
     ];
 
     /**
@@ -29,6 +30,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function hasManyFreeDays(){
+        $this->hasMany('App/FreeDay', 'user_id');
+    }
 
     public function setUsedFreeDays(){
         $daysUsed = FreeDay::calculateHolidayReservedInWorkingDays();
@@ -45,6 +49,8 @@ class User extends Authenticatable
         $daysUsed = User::where('id', id())->get('used_free_days');
         $this-> attributes['remaining_free_days'] = User::calculateRemainingFreeDays($freeDays, $daysUsed);
     }
+
+
 
 
 

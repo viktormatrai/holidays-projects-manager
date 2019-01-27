@@ -1,13 +1,13 @@
-<p class="h2 mt-5">Employees</p>
+<p class="h2 mt-5">Munkatársak</p>
 <div class="card bg-light">
     <div class="card-body p-0">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Név</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Free days remaining</th>
-                    <th scope="col">Free days used</th>
+                    <th scope="col">Felhasználható szabadnapok</th>
+                    <th scope="col">Felhasznált szabadnapok</th>
                     <th scope="col">Projects working on</th>
                 </tr>
             </thead>
