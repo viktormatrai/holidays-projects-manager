@@ -24,17 +24,6 @@ class FreedayController extends Controller
     }
 
     public function store(Request $request){
-        //$validationRules = array(
-        //    'first_day' => 'required',
-        //    'last_day' => 'required',
-        //);
-
-        /*$validator = Validator::make(Input::all(), $validationRules);
-
-        if ($validator->fails()) {
-            return view('example.reserve')
-                ->withErrors($validator);
-        } else {*/
 
             FreeDay::create([
                 'first_day' => $request->get('first_day'),
@@ -50,6 +39,7 @@ class FreedayController extends Controller
 
         $freeday = FreeDay::find($id);
 
+
         return view('example.update_reservation')->with('freeday', $freeday);
     }
 
@@ -58,22 +48,11 @@ class FreedayController extends Controller
 
         $id = $request->get('id');
 
-        $validationRules = array(
-            'first_day' => 'required',
-            'last_day' => 'required',
-            );
 
-        /*$validator = Validator::make(Input::all(), $validationRules);
-
-        if ($validator->fails()) {
-            return Redirect::to('/reservation' . $id . '/edit')
-                ->withErrors($validator);
-        } else {*/
-
-            FreeDay::where('id', $id)
-                ->update([
-                    'first_day' => $request->get('first_day'),
-                    'last_day' => $request->get('last_day')
+        FreeDay::where('id', $id)
+            ->update([
+                'first_day' => $request->get('first_day'),
+                'last_day' => $request->get('last_day')
                 ]);
 
             return redirect('reserve/index');

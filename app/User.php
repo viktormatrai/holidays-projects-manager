@@ -34,6 +34,10 @@ class User extends Authenticatable
         $this->hasMany('App/FreeDay', 'user_id');
     }
 
+    public function hasManyProjects(){
+        $this->hasMany('App/Project', 'user_id');
+    }
+
     public function setUsedFreeDays(){
         $daysUsed = FreeDay::calculateHolidayReservedInWorkingDays();
         $this -> attributes['used_free_days'] = $daysUsed;
