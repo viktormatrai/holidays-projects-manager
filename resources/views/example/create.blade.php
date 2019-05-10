@@ -2,7 +2,7 @@
 
 @section('content')
     <div class = "col-sm-8">
-        <h1>Register</h1>
+        <h1>Új munkatárs hozzáadása</h1>
         <form method="POST" action="{{ action('UserController@store') }}">
             {{ csrf_field() }}
             <div class="form-group">
@@ -35,7 +35,7 @@
 
         </form>
         <div class="form-group">
-            <a class="btn btn-outline-success" href="{{ URL::to('/freedays') }}">Back</a>
+            <a class="btn btn-outline-success" href="{{ URL::to('/freedays') }}">Vissza</a>
         </div>
     </div>
 @endsection

@@ -12,8 +12,7 @@ class ProjectController extends Controller
     }
 
     public function show(){
-        $user_id = Auth::id();
-        $projects = Project::where('user_id', '=', $user_id)->get();
+        $projects = Project::orderBy('project_deadline');
         return view('example.projects')->with('projects', $projects);
     }
 
