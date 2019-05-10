@@ -14,12 +14,11 @@
                 <textarea type="text" class="form-control"
                           id="project_description"
                           name="project_description"
-                          placeholder="Project leírása"/>
+                          placeholder="Project leírása"></textarea>
             </div>
-
             <div class="form-group">
-                <label for="password">Jelszó:</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <label for="project_deadline">Project leadás határideje</label>
+                <input type="date" class="form-control" id="project_deadline" name="project_deadline">
             </div>
 
             <div class="form-group">

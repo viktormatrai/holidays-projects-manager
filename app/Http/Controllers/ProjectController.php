@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
     public function create(){
-        return view('example.createProject');
+        return view('example.newProject');
     }
 
     public function show(){
@@ -20,10 +20,9 @@ class ProjectController extends Controller
     public function store(Request $request){
 
         Project::create([
-            'project name'=>$request->get('first_day'),
-            'project_description'=>$request->get('last_day'),
-            'project_deadline' => $request->get('project_deadline'),
-            'user_id' =>Auth::id()
+            'project_name'=>$request->get('project_name'),
+            'project_description'=>$request->get('project_description'),
+            'project_deadline' => $request->get('project_deadline')
         ]);
 
         return redirect('projects/index');

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class = "col-sm-8">
-        <h1>Reserve free days</h1>
+        <h1>Szabadság szerkesztése</h1>
         <form method="POST" action="{{ action('FreedayController@update', $freeday->id) }}">
             {{ csrf_field() }}
             {{ method_field('PUT') }}

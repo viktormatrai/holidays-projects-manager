@@ -9,9 +9,7 @@
         <a class="btn btn-outline-primary" href="{{ URL::to( 'projects/show' ) }}">Projectek</a>
     </li>
 @if(Auth::user()->user_role == 'admin')
-    <li class="nav-item">
-        <a class="btn btn-outline-dark" href="{{ URL::to('freedays/create') }}">Új munkatárs</a>
-    </li>
+    <li class="nav-item"><a class="btn btn-outline-dark" href="{{ URL::to('freedays/create') }}">Új munkatárs</a></li>
     <li> <a class="btn btn-info" href="{{ URL::to('projects/create') }}"> Új project</a></li>
 @endif
     <li class="nav-item">

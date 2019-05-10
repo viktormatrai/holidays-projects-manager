@@ -15,11 +15,10 @@
 
 
 Route::group(['middleware' => 'auth'], function (){
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+    Route::get('/', function () {return view('auth.login');});
     Route::resource('/freedays', 'UserController');
     Route::resource('/reserve', 'FreedayController');
+    Route::resource('/projects', 'ProjectController');
 });
 
 
