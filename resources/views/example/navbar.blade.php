@@ -13,7 +13,7 @@
     <li> <a class="btn btn-info" href="{{ URL::to('projects/create') }}"> Új project</a></li>
 @endif
     <li class="nav-item">
-        <a class="btn btn-outline-danger" href="{{ URL::to('logout') }}"> Log out </a>
+        <a class="btn btn-outline-danger" href="{{ URL::to('logout') }}"> Kijelentkezés </a>
     </li>
 
 </ul>
